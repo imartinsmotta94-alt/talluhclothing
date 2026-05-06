@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talluh Clothing · Moda Feminina Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --preto:#0a0908;--off-white:#f5f2ed;--bege:#d4c5b0;--bege-claro:#ede5d8;
+  --marsala:#7a2d35;--dourado:#b89b72;--cinza:#8a8178;
+  --font-d:'Cormorant Garamond',serif;--font-b:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--off-white);color:var(--preto);font-family:var(--font-b);font-weight:300;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5vw;background:rgba(245,242,237,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(212,197,176,0.2);}
+.nav-logo{font-family:var(--font-d);font-size:2rem;font-weight:600;letter-spacing:0.15em;color:var(--preto);text-decoration:none;text-transform:uppercase;}
+.nav-cta{font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--off-white);background:var(--marsala);padding:0.55rem 1.4rem;text-decoration:none;transition:background 0.25s;}
+.nav-cta:hover{background:var(--preto);}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:64px;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:4rem 4vw 4rem 6vw;}
+.hero-tag{font-size:0.6rem;font-weight:400;letter-spacing:0.35em;text-transform:uppercase;color:var(--dourado);margin-bottom:1.8rem;}
+.hero-title{font-family:var(--font-d);font-size:clamp(3rem,6vw,6rem);font-weight:300;line-height:1.0;margin-bottom:0.3rem;}
+.hero-title em{font-style:italic;color:var(--marsala);}
+.hero-desc{font-size:0.9rem;font-weight:300;line-height:1.85;color:var(--cinza);max-width:420px;margin:1.8rem 0 2.5rem;}
+.hero-ctas{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+.btn-primary{font-family:var(--font-b);font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--off-white);background:var(--marsala);padding:0.9rem 2.2rem;text-decoration:none;transition:background 0.25s,transform 0.2s;display:inline-block;}
+.btn-primary:hover{background:var(--preto);transform:translateY(-1px);}
+.btn-ghost{font-size:0.68rem;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--cinza);text-decoration:none;border-bottom:1px solid var(--bege);padding-bottom:2px;transition:color 0.25s,border-color 0.25s;}
+.btn-ghost:hover{color:var(--marsala);border-color:var(--marsala);}
+.hero-right{position:relative;overflow:hidden;background:var(--bege-claro);}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.hero-badge{position:absolute;bottom:2rem;left:2rem;background:rgba(10,9,8,0.55);backdrop-filter:blur(8px);padding:9px 16px;}
+.hero-badge span{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#f5f2ed;}
+.trust{background:var(--preto);padding:1rem 5vw;display:flex;justify-content:center;gap:clamp(1.5rem,5vw,4rem);flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:0.5rem;}
+.trust-icon{color:var(--dourado);font-size:0.85rem;}
+.trust-text{font-size:0.6rem;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,242,237,0.55);}
+.sobre{padding:clamp(4rem,8vw,7rem) 5vw;display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,6rem);align-items:center;max-width:1100px;margin:0 auto;}
+.sobre-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bege-claro);}
+.sobre-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.sobre-img::after{content:'';position:absolute;bottom:-1.2rem;right:-1.2rem;width:80px;height:80px;border:1px solid var(--dourado);opacity:0.3;pointer-events:none;}
+.sobre-tag{font-size:0.6rem;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--dourado);margin-bottom:1.2rem;}
+.sobre-title{font-family:var(--font-d);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;margin-bottom:1.4rem;}
+.sobre-title em{font-style:italic;color:var(--marsala);}
+.sobre-text{font-size:0.87rem;font-weight:300;line-height:1.9;color:var(--cinza);margin-bottom:2rem;}
+.diferenciais{display:flex;flex-direction:column;gap:0.9rem;}
+.dif{display:flex;align-items:flex-start;gap:0.9rem;padding-bottom:0.9rem;border-bottom:1px solid var(--bege-claro);}
+.dif-dot{width:5px;height:5px;border-radius:50%;background:var(--marsala);flex-shrink:0;margin-top:8px;}
+.dif-text{font-size:0.83rem;font-weight:300;line-height:1.7;color:var(--cinza);}
+.dif-text strong{color:var(--preto);font-weight:400;}
+.looks-section{background:var(--preto);padding:clamp(4rem,8vw,6rem) 0;}
+.looks-header{max-width:1100px;margin:0 auto;padding:0 5vw 3rem;}
+.section-tag{font-size:0.6rem;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--dourado);display:block;margin-bottom:1rem;}
+.section-title{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.1;}
+.looks-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;}
+.look-item{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:pointer;}
+.look-item img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);}
+.look-item:hover img{transform:scale(1.04);}
+.look-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,8,0.78) 0%,transparent 55%);opacity:0;transition:opacity 0.4s;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem;}
+.look-item:hover .look-overlay{opacity:1;}
+.look-name{font-family:var(--font-d);font-size:0.95rem;font-style:italic;font-weight:300;color:#f5f2ed;display:block;}
+.look-cat{font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--bege);display:block;margin-top:3px;}
+.looks-cta{text-align:center;margin-top:2.5rem;padding:0 5vw;}
+.dep-section{background:var(--off-white);padding:clamp(4rem,8vw,6rem) 5vw;}
+.dep-inner{max-width:1100px;margin:0 auto;}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.dep-card{background:#fff;border:1px solid #ede5d8;padding:2rem 1.8rem;transition:border-color 0.3s;}
+.dep-card:hover{border-color:var(--dourado);}
+.dep-stars{display:flex;gap:3px;margin-bottom:1.2rem;}
+.star{color:var(--dourado);font-size:0.7rem;}
+.dep-texto{font-family:var(--font-d);font-size:1rem;font-style:italic;font-weight:300;line-height:1.75;color:#5a5550;margin-bottom:1.5rem;}
+.dep-nome{font-size:0.65rem;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--marsala);display:block;}
+.dep-ig{font-size:0.6rem;color:var(--cinza);letter-spacing:0.1em;margin-top:3px;display:block;text-decoration:none;}
+.dep-ig:hover{color:var(--marsala);}
+.processo{padding:clamp(4rem,8vw,6rem) 5vw;max-width:1100px;margin:0 auto;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;position:relative;}
+.steps::before{content:'';position:absolute;top:8px;left:12px;right:12px;height:1px;background:var(--bege-claro);}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--off-white);border:1.5px solid var(--marsala);margin-bottom:1.5rem;position:relative;z-index:1;}
+.step-num{font-family:var(--font-d);font-size:2rem;font-weight:300;color:var(--bege-claro);line-height:1;margin-bottom:0.5rem;}
+.step-title{font-family:var(--font-d);font-size:1.1rem;font-style:italic;font-weight:400;color:var(--preto);margin-bottom:0.5rem;}
+.step-text{font-size:0.8rem;font-weight:300;line-height:1.8;color:var(--cinza);}
+.cta-final{background:var(--marsala);padding:clamp(4rem,8vw,6rem) 5vw;text-align:center;position:relative;overflow:hidden;}
+.cta-final::before{content:'';position:absolute;top:-50%;left:-10%;width:60%;height:200%;background:rgba(255,255,255,0.03);transform:rotate(-15deg);pointer-events:none;}
+.cta-tag{font-size:0.6rem;font-weight:300;letter-spacing:0.35em;text-transform:uppercase;color:rgba(245,242,237,0.55);margin-bottom:1.5rem;display:block;}
+.cta-title{font-family:var(--font-d);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.05;color:var(--off-white);margin-bottom:0.5rem;}
+.cta-title em{font-style:italic;opacity:0.7;}
+.cta-sub{font-size:0.85rem;font-weight:300;color:rgba(245,242,237,0.6);margin-bottom:3rem;}
+.cta-btn{display:inline-block;font-family:var(--font-b);font-size:0.7rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--marsala);background:var(--off-white);padding:1.1rem 3rem;text-decoration:none;transition:background 0.25s,color 0.25s,transform 0.2s;}
+.cta-btn:hover{background:var(--preto);color:var(--off-white);transform:translateY(-2px);}
+.cta-loc{margin-top:1.8rem;font-size:0.62rem;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,242,237,0.3);display:block;}
+footer{background:var(--preto);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.05);}
+.footer-logo{font-family:var(--font-d);font-size:1.1rem;font-weight:600;letter-spacing:0.18em;color:var(--off-white);text-transform:uppercase;}
+.footer-ig{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,242,237,0.3);text-decoration:none;transition:color 0.25s;}
+.footer-ig:hover{color:var(--dourado);}
+.footer-copy{font-size:0.58rem;color:rgba(245,242,237,0.2);letter-spacing:0.1em;}
+.wa-float{position:fixed;bottom:1.8rem;right:1.8rem;z-index:200;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s;}
+.wa-float:hover{transform:scale(1.08);}
+.wa-float svg{width:26px;height:26px;fill:white;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){
+  .hero{display:flex;flex-direction:column;}
+  .hero-right{height:75vw;}
+  .hero-left{padding:6rem 5vw 3rem;}
+  .sobre{grid-template-columns:1fr;}
+  .sobre-img{display:none;}
+  .looks-grid{grid-template-columns:repeat(2,1fr);}
+  .dep-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .steps::before{display:none;}
+  footer{flex-direction:column;text-align:center;}
+}
+@media(max-width:480px){
+  .hero-ctas{flex-direction:column;align-items:flex-start;}
+  .steps{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Talluh</a>
+  <a href="#contato" class="nav-cta">Falar no WhatsApp</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Moda feminina premium · Uberlândia / MG</p>
+    <h1 class="hero-title">Looks que te<br><em>fazem sentir única</em></h1>
+    <p class="hero-desc">Moda feminina de qualidade com entrega para todo o Brasil. Looks incríveis para o dia a dia, trabalho e ocasiões especiais.</p>
+    <div class="hero-ctas">
+      <a href="#looks" class="btn-primary">Ver os looks</a>
+      <a href="#contato" class="btn-ghost">Falar no WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="fotos/IMG_1324.jpeg" alt="Talluh Clothing">
+    <div class="hero-badge"><span>Look da coleção</span></div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-item"><span class="trust-icon">✦</span><span class="trust-text">Roupas de qualidade</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span><span class="trust-text">Peças exclusivas</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span><span class="trust-text">Envio para todo o Brasil</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span><span class="trust-text">+500 clientes felizes</span></div>
+</div>
+
+<section class="sobre">
+  <div class="sobre-img reveal">
+    <img src="fotos/IMG_1350.jpeg" alt="Talluh Clothing">
+  </div>
+  <div class="reveal">
+    <p class="sobre-tag">Sobre a Talluh</p>
+    <h2 class="sobre-title">Moda feminina<br><em>de qualidade</em></h2>
+    <p class="sobre-text">A Talluh é uma loja de moda feminina premium. Trabalhamos com peças de qualidade — estilo, caimento e acabamento impecáveis — para a mulher que se importa com o jeito que se veste.</p>
+    <div class="diferenciais">
+      <div class="dif"><div class="dif-dot"></div><p class="dif-text"><strong>Peças de qualidade</strong> — roupas com estilo, bom caimento e acabamento impecável para qualquer ocasião.</p></div>
+      <div class="dif"><div class="dif-dot"></div><p class="dif-text"><strong>Variedade de looks</strong> — do dia a dia ao evento especial, você encontra o look certo na Talluh.</p></div>
+      <div class="dif"><div class="dif-dot"></div><p class="dif-text"><strong>Atendimento personalizado</strong> — te ajudamos a encontrar a peça certa para cada ocasião.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="looks-section" id="looks">
+  <div class="looks-header reveal">
+    <span class="section-tag">Coleção</span>
+    <h2 class="section-title" style="color:var(--off-white);">Looks que <em style="font-style:italic;color:var(--bege);">a gente tem</em></h2>
+  </div>
+  <div class="looks-grid">
+    <div class="look-item">
+      <img src="fotos/IMG_2467.jpeg" alt="Blazer Capa">
+      <div class="look-overlay">
+        <span class="look-name">Blazer Capa</span>
+        <span class="look-cat">Trabalho · Evento</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_2523.jpeg" alt="Macacão Liso">
+      <div class="look-overlay">
+        <span class="look-name">Macacão Liso</span>
+        <span class="look-cat">Trabalho · Evento</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_1294.jpeg" alt="Calça Reta Pantalona">
+      <div class="look-overlay">
+        <span class="look-name">Calça Reta Pantalona</span>
+        <span class="look-cat">Trabalho · Casual chic</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_1308.jpeg" alt="Blusa Nula Manga">
+      <div class="look-overlay">
+        <span class="look-name">Blusa Nula Manga</span>
+        <span class="look-cat">Trabalho · Casual chic</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_2557.jpeg" alt="Blusa Nula Manga com Detalhe Dourado + Calça Cenoura">
+      <div class="look-overlay">
+        <span class="look-name">Blusa Nula Manga com Detalhe Dourado + Calça Cenoura</span>
+        <span class="look-cat">Dia a dia · Casual chic</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_2534.jpeg" alt="Blazer Capa Preto Completo">
+      <div class="look-overlay">
+        <span class="look-name">Blazer Capa Preto Completo</span>
+        <span class="look-cat">Trabalho · Evento</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_1316.jpeg" alt="Blusa Branca com Corte">
+      <div class="look-overlay">
+        <span class="look-name">Blusa Branca com Corte</span>
+        <span class="look-cat">Dia a dia · Trabalho</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_1319.jpeg" alt="Blusa Nula Manga">
+      <div class="look-overlay">
+        <span class="look-name">Blusa Nula Manga</span>
+        <span class="look-cat">Dia a dia · Casual chic</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_2454.jpeg" alt="Macacão Preto">
+      <div class="look-overlay">
+        <span class="look-name">Macacão Preto</span>
+        <span class="look-cat">Festa · Evento</span>
+      </div>
+    </div>
+    <div class="look-item">
+      <img src="fotos/IMG_2454.jpeg" alt="Macacão Preto">
+      <div class="look-overlay">
+        <span class="look-name">Macacão Preto</span>
+        <span class="look-cat">Festa · Evento</span>
+      </div>
+    </div>
+  </div>
+  <div class="looks-cta reveal" style="margin-top:2.5rem;">
+    <a href="https://wa.me/5534991779558?text=Olá!%20Vi%20os%20looks%20no%20site%20e%20quero%20saber%20mais%20✨" target="_blank" class="btn-primary">Ver mais looks no WhatsApp</a>
+  </div>
+</section>
+
+<section class="dep-section">
+  <div class="dep-inner">
+    <span class="section-tag reveal">O que elas dizem</span>
+    <h2 class="section-title reveal">Clientes que <em style="font-style:italic;color:var(--marsala);">amam</em></h2>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="dep-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="dep-texto">"A peça ficou perfeita no meu corpo. Senti que foi feita exatamente para mim — nunca tinha usado algo assim."</p>
+        <span class="dep-nome">Jemima Gabriele</span>
+        <a href="https://instagram.com/jemimateixeira" target="_blank" class="dep-ig">@jemimateixeira</a>
+      </div>
+      <div class="dep-card reveal">
+        <div class="dep-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="dep-texto">"Nunca tinha experimentado moda de qualidade assim. A diferença no caimento é absurda. Já fiz três compras."</p>
+        <span class="dep-nome">Luiza Kummrow</span>
+        <a href="https://instagram.com/draluizakummrow" target="_blank" class="dep-ig">@draluizakummrow</a>
+      </div>
+      <div class="dep-card reveal">
+        <div class="dep-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="dep-texto">"Fui ao casamento da minha amiga com um look da Talluh e recebi elogios a noite toda. Atendimento impecável!"</p>
+        <span class="dep-nome">Michele Oliveira</span>
+        <a href="https://instagram.com/micheleoliveira" target="_blank" class="dep-ig">@micheleoliveira</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="processo">
+  <span class="section-tag reveal">Como funciona</span>
+  <h2 class="section-title reveal">Do contato à <em style="font-style:italic;color:var(--marsala);">entrega</em></h2>
+  <div class="steps">
+    <div class="step reveal"><div class="step-dot"></div><div class="step-num">01</div><h3 class="step-title">Consulta</h3><p class="step-text">Você nos conta o que procura — ocasião, estilo, tamanho. A gente já separa o que combina com você.</p></div>
+    <div class="step reveal"><div class="step-dot"></div><div class="step-num">02</div><h3 class="step-title">Escolha</h3><p class="step-text">Apresentamos as peças disponíveis com fotos e detalhes. Você escolhe sem sair de casa.</p></div>
+    <div class="step reveal"><div class="step-dot"></div><div class="step-num">03</div><h3 class="step-title">Pagamento</h3><p class="step-text">Parcelamento facilitado, Pix ou cartão. Processo rápido e seguro direto pelo WhatsApp.</p></div>
+    <div class="step reveal"><div class="step-dot"></div><div class="step-num">04</div><h3 class="step-title">Entrega</h3><p class="step-text">Entregamos em Uberlândia ou enviamos para todo o Brasil com embalagem cuidadosa e rastreamento.</p></div>
+  </div>
+</section>
+
+<section class="cta-final" id="contato">
+  <span class="cta-tag">Pronta para se sentir incrível?</span>
+  <h2 class="cta-title">Fale com<br><em>a gente</em></h2>
+  <p class="cta-sub">Atendimento pelo WhatsApp · Novidades toda semana</p>
+  <a href="https://wa.me/5534991779558?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20looks%20da%20Talluh%20✨" target="_blank" class="cta-btn">Falar no WhatsApp</a>
+  <span class="cta-loc">📍 Uberlândia / MG · Enviamos para todo o Brasil</span>
+</section>
+
+<footer>
+  <span class="footer-logo">Talluh Clothing</span>
+  <a href="https://instagram.com/talluhclothing" target="_blank" class="footer-ig">@talluhclothing</a>
+  <span class="footer-copy">© 2025 Talluh Clothing</span>
+</footer>
+
+<a href="https://wa.me/5534991779558?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20looks%20da%20Talluh%20✨" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => {
+      if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*60); io.unobserve(e.target); }
+    });
+  },{threshold:0.1});
+  reveals.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
